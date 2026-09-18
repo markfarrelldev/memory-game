@@ -2,7 +2,11 @@
 
 import Image from "next/image";
 
-interface CardButtonProps {
+interface CardProps {
+	id: number;
+	imageURL: string;
+	isFlipped: boolean;
+	isMatched: boolean;
 	onFlip: (id: number) => void;
 }
 
@@ -12,15 +16,8 @@ export default function Card({
 	isFlipped,
 	isMatched,
 	onFlip
-}: {
-	id: number,
-	imageURL: string,
-	isFlipped: boolean,
-	isMatched: boolean,
-	onFlip: CardButtonProps
-}) {
+}: CardProps) {
 
-	console.log(isFlipped);
 	return (
 		<div className="aspect-square bg-blue-500 hover:bg-blue-400 rounded-lg flex items-center justify-center">
 			<button className="border-none bg-transparent p-0 cursor-pointer h-full w-full" onClick={() => onFlip(id)}>
